@@ -20,12 +20,17 @@ The packet is broken as follows -
 3. 5 MSB of 1st byte - 5 LSB of analog value
 4. byte 2-5 - timestamp in microseconds from the arduino
 5. byte 6 - delimiter
+
 ![packet description](img/packet.png)
 
+
+### State identifiers
 ```python
-START_TEST        = 0b100
-BEFORE_SOLENOID   = 0b001
-AFTER_SOLENOID    = 0b010
-BEAM_READ         = 0b011 
-END_TEST          = 0b110   
+START_TEST        = 0b100       # Test procedure starts
+BEFORE_SOLENOID   = 0b001       # Timestamp right before solenoid trigger
+AFTER_SOLENOID    = 0b010       # Timestamp right after solenoid trigger
+BEAM_READ         = 0b011       # Analog read of beam breaker
+END_TEST          = 0b110       # Test procedure ended
 ```
+
+A test can have multiple stages. The test as a whole is indicated by START_TEST, and END_TEST;
