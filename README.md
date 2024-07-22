@@ -16,10 +16,8 @@ This test is already implemented in TimingClient.ipynb
 The serial communiation is done via a 7 byte packet at a time.
 The packet is broken as follows - 
 1. 3 MSB of 0th byte - state/stage identifier
-2. 5 LSB of 0th byte - 5 MSB of analog value  
-3. 5 MSB of 1st byte - 5 LSB of analog value
-4. byte 2-5 - timestamp in microseconds from the arduino
-5. byte 6 - delimiter
+2. 5 LSB of 0th byte - delimiter
+4. byte 1-4 - timestamp in microseconds from the arduino
 
 ![packet description](img/packet.png)
 
